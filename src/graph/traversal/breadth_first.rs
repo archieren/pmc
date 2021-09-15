@@ -1,7 +1,7 @@
 use std::collections::HashSet;
 use std::collections::VecDeque;
 
-use crate::{Error, Graph, Step};
+use crate::graph::{Error, Graph, Step};
 
 /// Implements a breadth-first traversal as a Step Iterator.
 

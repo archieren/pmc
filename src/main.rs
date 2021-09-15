@@ -1,5 +1,4 @@
-use parallel_maximal_clique::Graph;
-use parallel_maximal_clique::HashMapGraph as H_Graph;
+use parallel_maximal_clique::graph::{Graph, HashMapGraph as H_Graph};
 use petgraph::dot::Dot;
 use petgraph::graph::Graph as P_Graph;
 use rayon::prelude::*;

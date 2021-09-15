@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-use crate::{Error, Graph, Step};
+use crate::graph::{Error, Graph, Step};
 
 /// Iterates edges of graph in depth-first order. To perform a depth-first
 /// search, use the `depth_first` function instead.
