@@ -1,7 +1,7 @@
-mod hashmap_graph;
+mod implementation;
 mod traversal;
 
-pub use hashmap_graph::*;
+pub use implementation::*;
 pub use traversal::*;
 
 /// An unweighted graph trait.
