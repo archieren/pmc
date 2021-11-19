@@ -5,7 +5,7 @@ pub use implementation::*;
 pub use traversal::*;
 
 /// An unweighted graph trait.
-/// How to Design A Graph,?
+/// How to Design A Graph,?  See Gamma!
 pub trait Graph {
     /// Returns true if there are no nodes, or false otherwise.
     fn is_empty(&self) -> bool;
