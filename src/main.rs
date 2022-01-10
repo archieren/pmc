@@ -1,4 +1,4 @@
-use parallel_maximal_clique::graph::{Graph, HashMapGraph as H_Graph};
+use parallel_maximal_clique::graph::{Graph, HashMapGraph as H_Graph, Kcores};
 use petgraph::dot::Dot;
 use petgraph::graph::Graph as P_Graph;
 use rayon::prelude::*;
@@ -36,7 +36,7 @@ pub fn it_works() {
 
 fn main() {
     it_works();
-    let h_graph = H_Graph::new();
+    let mut h_graph = H_Graph::new();
     let mut graph = P_Graph::<&str, u32>::new();
     let origin = graph.add_node("Denver");
     let destination_1 = graph.add_node("San Diego");
@@ -46,4 +46,16 @@ fn main() {
 
     println!("{}", Dot::new(&graph));
     println!("{}", h_graph.is_empty());
+    let nodes: Vec<usize> = vec![10, 122, 33, 88, 99, 1000, 99];
+    for node in nodes.iter() {
+        let res = h_graph.add_node(*node);
+        match res {
+            Ok(_) => println!("add {} ok!", node),
+            Err(_) => println!("add {} failed. It maybe a duplicated case!", node),
+        };
+    }
+    let ids = h_graph.ids();
+    for val in ids {
+        println!("{}", val)
+    }
 }

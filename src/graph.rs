@@ -1,6 +1,8 @@
+mod denset;
 mod implementation;
 mod traversal;
 
+pub use denset::*;
 pub use implementation::*;
 pub use traversal::*;
 
