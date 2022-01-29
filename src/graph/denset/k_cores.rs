@@ -8,10 +8,9 @@ pub struct Kcores<'a, G> {
 
 impl<'a, G: Graph> Kcores<'a, G> {
     pub fn new(graph: &'a G) -> Self {
-        let core_numbers: HashMap<usize, usize> = HashMap::new();
         Kcores {
-            core_numbers,
-            graph,
+            core_numbers: HashMap::new(),
+            graph: graph,
         }
     }
 
