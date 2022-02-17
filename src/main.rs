@@ -1,6 +1,5 @@
+#![allow(unused_imports)]
 use parallel_maximal_clique::graph::{Graph, HashMapGraph as H_Graph, Kcores};
-use petgraph::dot::Dot;
-use petgraph::graph::Graph as P_Graph;
 use rayon::prelude::*;
 
 struct Person {
@@ -37,14 +36,7 @@ pub fn it_works() {
 fn main() {
     it_works();
     let mut h_graph = H_Graph::new();
-    let mut graph = P_Graph::<&str, u32>::new();
-    let origin = graph.add_node("Denver");
-    let destination_1 = graph.add_node("San Diego");
-    let destination_2 = graph.add_node("New York");
 
-    graph.extend_with_edges(&[(origin, destination_1, 250), (origin, destination_2, 1099)]);
-
-    println!("{}", Dot::new(&graph));
     println!("{}", h_graph.is_empty());
     let nodes: Vec<usize> = vec![10, 122, 33, 88, 99, 1000, 99];
     for node in nodes.iter() {
@@ -58,4 +50,9 @@ fn main() {
     for val in ids {
         println!("{}", val)
     }
+
+    let mut kscore = Kcores::new(&h_graph);
+    let _ = kscore.cores_by_batagelj();
+
+    h_graph.has_id(99);
 }

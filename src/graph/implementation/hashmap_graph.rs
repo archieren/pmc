@@ -5,9 +5,18 @@ use std::convert::TryFrom;
 
 #[derive(Debug)]
 pub struct HashMapGraph {
+    /// id used by caller, index used intenally!
+
+    /// id -> index
     indices: HashMap<usize, usize>,
+
+    /// index -> list of id
     adjacency: Vec<Vec<usize>>,
+
+    /// index -> id
     ids: Vec<usize>,
+
+    /// list of (sid, tid)
     edges: Vec<(usize, usize)>,
 }
 
